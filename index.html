@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projectokart</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #105b63;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0e4e57;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fbb040;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fbb040;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .search-box {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 30px;
+      background-color: #fbb040;
+      color: #105b63;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e09a2d;
+    }
+
+    footer {
+      padding: 10px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Projectokart</div>
+    <nav>
+      <a href="#">About Us</a>
+      <a href="#">Our Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="main">
+    <h1>Welcome to Projectokart</h1>
+    <p>Search your projects & ideas just like Google.</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search anything...">
+      <br />
+      <button>Search</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Projectokart. All rights reserved.
+  </footer>
+
+</body>
+</html>
