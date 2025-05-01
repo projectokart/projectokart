@@ -3,60 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projectokart Form</title>
+  <title>Contact Us | Projectokart</title>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 20px;">
+<body style="margin: 0; font-family: 'Poppins', sans-serif; background-color: #f5f7fa; color: #333;">
 
-  <h2>Projectokart Contact Form</h2>
+  <div style="max-width: 600px; margin: 40px auto; background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center; margin-bottom: 25px; font-size: 1.8rem; color: #004aad;">Contact Form</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
 
-  <form id="form" onsubmit="submitForm(event)" style="max-width: 500px;">
-    <input type="text" id="name" placeholder="Enter your name" required style="width:100%;margin:10px 0;padding:10px;"/>
-    <input type="tel" id="contact" placeholder="Enter your contact number" required style="width:100%;margin:10px 0;padding:10px;"/>
-    <input type="email" id="email" placeholder="Enter your email" required style="width:100%;margin:10px 0;padding:10px;"/>
-    <textarea id="address" placeholder="Enter your address" rows="3" required style="width:100%;margin:10px 0;padding:10px;"></textarea>
-    <input type="text" id="country" placeholder="Enter your country" required style="width:100%;margin:10px 0;padding:10px;"/>
-    <input type="text" id="state" placeholder="Enter your state" required style="width:100%;margin:10px 0;padding:10px;"/>
-    <input type="text" id="district" placeholder="Enter your district" required style="width:100%;margin:10px 0;padding:10px;"/>
-    <input type="number" id="pincode" placeholder="Enter your pincode" required style="width:100%;margin:10px 0;padding:10px;"/>
-    <textarea id="message" placeholder="Enter your message" rows="4" required style="width:100%;margin:10px 0;padding:10px;"></textarea>
+      <input type="tel" name="contact" placeholder="Contact Number" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
 
-    <button type="submit" style="padding:12px 20px;background:#004aad;color:white;border:none;cursor:pointer;">Submit</button>
-  </form>
+      <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
+
+      <textarea name="address" rows="3" placeholder="Your Address" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+
+      <input type="text" name="country" placeholder="Country" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
+
+      <input type="text" name="state" placeholder="State" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
+
+      <input type="text" name="district" placeholder="District" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
+
+      <input type="number" name="pincode" placeholder="Pincode" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
+
+      <textarea name="message" rows="4" placeholder="Your Query / Message" required style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+
+      <div style="display: flex; justify-content: space-between;">
+        <button type="button" onclick="goBack()" style="background-color: #ccc; color: #333; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer;">Cancel</button>
+        <button type="submit" style="background-color: #004aad; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer;">Submit</button>
+      </div>
+    </form>
+  </div>
 
   <script>
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+
     function submitForm(event) {
       event.preventDefault();
-
-      const data = {
-        name: document.getElementById("name").value,
-        contact: document.getElementById("contact").value,
-        email: document.getElementById("email").value,
-        address: document.getElementById("address").value,
-        country: document.getElementById("country").value,
-        state: document.getElementById("state").value,
-        district: document.getElementById("district").value,
-        pincode: document.getElementById("pincode").value,
-        message: document.getElementById("message").value,
-      };
-
-      fetch("YOUR_GOOGLE_SCRIPT_URL", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        }
-      })
-      .then(res => res.json())
-      .then(response => {
-        alert("Form submitted successfully!");
-        document.getElementById("form").reset();
-      })
-      .catch(err => {
-        console.error(err);
-        alert("Error submitting form.");
-      });
+      alert('Form submitted successfully!');
+      // You can add your fetch API call here to send to Google Sheet or backend
     }
   </script>
-
 </body>
 </html>
