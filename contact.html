@@ -1,6 +1,8 @@
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Projectokart</title>
   <style>
     body {
@@ -97,22 +99,21 @@
   <div class="form-container">
     <h2>Contact Form</h2>
     <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required="" fdprocessedid="epo2w">
-      <input type="tel" name="contact" placeholder="Contact Number" required="" fdprocessedid="heoclr">
-      <input type="email" name="email" placeholder="Email Address" required="" fdprocessedid="35mkxd">
-      <textarea name="address" rows="3" placeholder="Your Address" required=""></textarea>
-      <input type="text" name="country" placeholder="Country" required="" fdprocessedid="gmkv3d">
-      <input type="text" name="state" placeholder="State" required="" fdprocessedid="a6uzwk">
-      <input type="text" name="district" placeholder="District" required="" fdprocessedid="al7sh8">
-      <input type="number" name="pincode" placeholder="Pincode" required="" fdprocessedid="bafwmw">
-      <textarea name="message" rows="4" placeholder="Your Query / Message" required=""></textarea>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="contact" placeholder="Contact Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="address" rows="3" placeholder="Your Address" required></textarea>
+      <input type="text" name="country" placeholder="Country" required />
+      <input type="text" name="state" placeholder="State" required />
+      <input type="text" name="district" placeholder="District" required />
+      <input type="number" name="pincode" placeholder="Pincode" required />
+      <textarea name="message" rows="4" placeholder="Your Query / Message" required></textarea>
 
-      <!-- Optional: redirect or disable captcha -->
-      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_captcha" value="false" />
 
       <div>
-        <button type="button" onclick="goBack()" fdprocessedid="vupzl8">Cancel</button>
-        <button type="submit" fdprocessedid="2zak7">Submit</button>
+        <button type="button" onclick="goBack()">Cancel</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   </div>
@@ -136,8 +137,13 @@
         });
 
         if (response.ok) {
-          alert("🎉 Form submitted successfully!");
+          alert("✅ Form submitted successfully!");
           form.reset();
+
+          // Redirect after short delay
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
         } else {
           alert("⚠️ There was an issue. Please try again.");
         }
@@ -147,6 +153,5 @@
     });
   </script>
 
-
-
-</body></html>
+</body>
+</html>
