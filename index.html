@@ -4,341 +4,83 @@
   <title>Projectokart</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-      margin: 0;
-    }
-
-    header {
-      background: linear-gradient(to right, #004aad, #007bff);
-      padding: 100px 20px;
-      text-align: center;
-      color: white;
-      background-image: url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      height: 300px;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 74, 173, 0.8);
-    }
-
-    header h1, header p {
-      position: relative;
-      z-index: 1;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      opacity: 0.95;
-    }
-
-    .features {
-      background-color: #0052cc;
-      color: white;
-      padding: 60px 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      text-align: center;
-    }
-
-    .features h2 {
-      grid-column: 1/-1;
-      margin-bottom: 30px;
-      font-size: 2.2rem;
-    }
-
-    .feature {
-      background: white;
-      color: #0052cc;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .feature:hover {
-      transform: translateY(-5px);
-    }
-
-    .feature h3 {
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-    }
-
-    .cta {
-      background: #f0f0f0;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 2rem;
-      margin-bottom: 25px;
-    }
-
-    .cta button {
-      background: #007bff;
-      color: white;
-      padding: 14px 30px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .cta button:hover {
-      background: #0052cc;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 50px 20px;
-    }
-
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-
-    .footer-column {
-      flex: 1;
-      margin-right: 20px;
-    }
-
-    .footer-column h3 {
-      margin-bottom: 15px;
-      font-size: 1.5rem;
-      color: #fff;
-    }
-
-    .footer-column p,
-    .footer-column a {
-display: block;
-  
-      color: #ccc;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-
-    .footer-column a:hover {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-
-    /* Modal Styles */
-    .modal {
-      display: none; 
-      position: fixed; 
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      width: 400px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .modal form input,
-    .modal form textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    .modal form button {
-      background: #007bff;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .modal form button:hover {
-      background: #0052cc;
-    }
-
-    .modal form label {
-      font-weight: bold;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header p {
-        font-size: 1rem;
-      }
-
-      .cta h2 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
 </head>
-<body>
-  <header style="position: relative; height: 300px; overflow: hidden;">
+<body style="margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;background-color:#f9f9f9;color:#333;">
 
-  <!-- Background Video -->
-  <video autoplay="" loop="" muted="" playsinline="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-                object-fit: cover; z-index: 0;">
-    <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.mp4" type="video/mp4">
-    <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.webm" type="video/webm">
-  </video>
+  <header style="background:linear-gradient(to right, #004aad, #007bff);padding:100px 20px;text-align:center;color:white;background-image:url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5');background-size:cover;background-position:center;position:relative;height:300px;overflow:hidden;">
+    <video autoplay="" loop="" muted="" playsinline="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+      <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.mp4" type="video/mp4">
+      <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.webm" type="video/webm">
+    </video>
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);z-index:1;"></div>
+    <div style="position:relative;z-index:2;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100%;padding:20px;">
+      <h1 style="font-size:36px;font-weight:bold;color:white;">project<span style="color:#D6933A;">o</span>kart</h1>
+      <p style="font-size:16px;max-width:600px;color:#f0f0f0;">Projectokart is the ultimate service that collects all your project materials from different sources and brings them together in one place! Whether you're in a school, company, or industry, we've got you covered.</p>
+    </div>
+  </header>
 
-  <!-- Overlay -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-              background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
-
-  <!-- Content -->
-  <div style="position: relative; z-index: 2; color: white;
-              display: flex; flex-direction: column; justify-content: center;
-              align-items: center; text-align: center; height: 100%; padding: 20px;">
-
-    <h1 style="font-size: 36px; font-weight: bold; color: white;">
-      project<span style="color: #D6933A;">o</span>kart
-    </h1>
-    
-    <p style="font-size: 16px; max-width: 600px; color: #f0f0f0;">
-      Projectokart is the ultimate service that collects all your project materials from different sources and brings them together in one place! Whether you're in a school, company, or industry, we've got you covered.
-    </p>
-  </div>
-
-</header>
-
-
-
-
-
-  <section class="features">
-    <h2>Startup Kit packed with nice features</h2>
-    <div class="feature">
-      <h3>Fast Delivery</h3>
+  <section style="background-color:#0052cc;color:white;padding:60px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;text-align:center;">
+    <h2 style="grid-column:1/-1;margin-bottom:30px;font-size:2.2rem;">Startup Kit packed with nice features</h2>
+    <div style="background:white;color:#0052cc;padding:25px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;">Fast Delivery</h3>
       <p>We simplify your sourcing process by collecting materials from various suppliers and delivering them to you in one convenient package.</p>
     </div>
-    <div class="feature">
-      <h3>Custom Kits</h3>
+    <div style="background:white;color:#0052cc;padding:25px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;">Custom Kits</h3>
       <p>Whether you're working on a student project, a company prototype, or an industrial-scale project, we provide personalized kits tailored to your specific requirements.</p>
     </div>
-    <div class="feature">
-      <h3>Verified Materials</h3>
+    <div style="background:white;color:#0052cc;padding:25px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;">Verified Materials</h3>
       <p>Get top-notch, reliable components for all your projects. We only source from trusted suppliers, ensuring consistency and performance.</p>
     </div>
-    <div class="feature">
-      <h3>Nationwide Support</h3>
+    <div style="background:white;color:#0052cc;padding:25px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;">Nationwide Support</h3>
       <p>From any city or village, we deliver everywhere.</p>
     </div>
   </section>
 
-  <section class="cta">
-    <h2>Streamline Your Project Creation with Ease.</h2>
-    <button onclick="openModal()">Get Started</button>
+  <section style="background:#f0f0f0;padding:60px 20px;text-align:center;">
+    <h2 style="font-size:2rem;margin-bottom:25px;">Streamline Your Project Creation with Ease.</h2>
+    <button onclick="openModal()" style="background:#007bff;color:white;padding:14px 30px;font-size:1rem;border:none;border-radius:6px;cursor:pointer;">Get Started</button>
   </section>
 
-  <!-- Modal -->
-  <div id="myModal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
+  <div id="myModal" style="display: none; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+    <div style="background-color:white;padding:30px;border-radius:8px;width:400px;box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+      <span onclick="closeModal()" style="color:#aaa;float:right;font-size:28px;font-weight:bold;cursor:pointer;">×</span>
       <h2>Fill in the Form</h2>
       <form id="form" onsubmit="submitForm(event)">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required="">
-
-        <label for="contact">Contact Number</label>
-        <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="">
-
-        <label for="address">Address</label>
-        <textarea id="address" name="address" placeholder="Enter your address" rows="4" required=""></textarea>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required="">
-
-        <button type="submit">Submit</button>
+        <label for="name" style="font-weight:bold;margin-bottom:8px;display:block;">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;">
+        <label for="contact" style="font-weight:bold;margin-bottom:8px;display:block;">Contact Number</label>
+        <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;">
+        <label for="address" style="font-weight:bold;margin-bottom:8px;display:block;">Address</label>
+        <textarea id="address" name="address" placeholder="Enter your address" rows="4" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;"></textarea>
+        <label for="email" style="font-weight:bold;margin-bottom:8px;display:block;">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;">
+        <button type="submit" style="background:#007bff;color:white;padding:12px 25px;border:none;border-radius:6px;cursor:pointer;width:100%;">Submit</button>
       </form>
     </div>
   </div>
 
-  <footer>
-    <div class="footer-container">
-      <!-- Contact Information -->
-      <div class="footer-column">
-        <h3>Contact Information</h3>
-        <p>Phone: 8683979659</p>
-        <p>Email: sales@projectokart.com</p>
-        <p>Contact Person: Dev Sharma</p>
+  <footer style="background-color:#333;color:#fff;padding:50px 20px;">
+    <div style="display:flex;justify-content:space-between;max-width:1200px;margin:0 auto;flex-wrap:wrap;">
+      <div style="flex:1;margin-right:20px;">
+        <h3 style="margin-bottom:15px;font-size:1.5rem;color:#fff;">Contact Information</h3>
+        <p style="color:#ccc;font-size:0.9rem;margin-bottom:10px;">Phone: 8683979659</p>
+        <p style="color:#ccc;font-size:0.9rem;margin-bottom:10px;">Email: sales@projectokart.com</p>
+        <p style="color:#ccc;font-size:0.9rem;margin-bottom:10px;">Contact Person: Dev Sharma</p>
       </div>
-      <!-- Important Links -->
-      <div class="footer-column">
-        <h3>Important Links</h3>
-        <a href="#">About Us</a>
-        <a href="#">Services</a>
-        <a href="#">Projects</a>
+      <div style="flex:1;margin-right:20px;">
+        <h3 style="margin-bottom:15px;font-size:1.5rem;color:#fff;">Important Links</h3>
+        <a href="#" style="display:block;color:#ccc;font-size:0.9rem;margin-bottom:10px;text-decoration:none;">About Us</a>
+        <a href="#" style="display:block;color:#ccc;font-size:0.9rem;margin-bottom:10px;text-decoration:none;">Services</a>
+        <a href="#" style="display:block;color:#ccc;font-size:0.9rem;margin-bottom:10px;text-decoration:none;">Projects</a>
       </div>
-      <!-- Media Links -->
-      <div class="footer-column">
-        <h3>Media Links</h3>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">Twitter</a>
+      <div style="flex:1;">
+        <h3 style="margin-bottom:15px;font-size:1.5rem;color:#fff;">Media Links</h3>
+        <a href="#" style="display:block;color:#ccc;font-size:0.9rem;margin-bottom:10px;text-decoration:none;">Facebook</a>
+        <a href="#" style="display:block;color:#ccc;font-size:0.9rem;margin-bottom:10px;text-decoration:none;">Instagram</a>
+        <a href="#" style="display:block;color:#ccc;font-size:0.9rem;margin-bottom:10px;text-decoration:none;">Twitter</a>
       </div>
     </div>
   </footer>
@@ -347,21 +89,17 @@ display: block;
     function openModal() {
       document.getElementById("myModal").style.display = "flex";
     }
-
     function closeModal() {
       document.getElementById("myModal").style.display = "none";
     }
-
     function submitForm(event) {
       event.preventDefault();
-
       const formData = {
         name: document.getElementById("name").value,
         contact: document.getElementById("contact").value,
         address: document.getElementById("address").value,
         email: document.getElementById("email").value,
       };
-
       fetch("YOUR_GOOGLE_APP_SCRIPT_URL", {
         method: "POST",
         headers: {
@@ -372,7 +110,7 @@ display: block;
       .then((response) => response.json())
       .then((data) => {
         alert("Form submitted successfully!");
-        closeModal();  // Close the modal after successful submission
+        closeModal();
       })
       .catch((error) => {
         console.error("Error:", error);
