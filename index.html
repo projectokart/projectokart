@@ -5,7 +5,8 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
 </head>
-<body style="margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;background-color:#000000;color:#333;">
+<body style="margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;background-color:a#000000;color:#333;">
+<!-- Navbar -->
 <nav style="width: 100%; background-color: #145C5E; padding: 10px 20px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; color: white; position: relative; font-family: 'Poppins', sans-serif;">
 
   <!-- Logo -->
@@ -13,41 +14,41 @@
     Project<span style="color: #D6933A;">o</span>kart
   </div>
 
-  <!-- Hidden desktop nav -->
+  <!-- Desktop Links (hidden for now) -->
   <div id="navLinks" style="display: none; gap: 20px;">
     <a href="#" style="color: white; text-decoration: none;">Home</a>
     <a href="#" style="color: white; text-decoration: none;">About</a>
     <a href="#" style="color: white; text-decoration: none;">Contact</a>
   </div>
 
-  <!-- Three dots -->
+  <!-- Three-dot mobile icon -->
   <div id="menuIcon" style="cursor: pointer; font-size: 24px; display: block;">⋮</div>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" style="display: none; position: absolute; top: 60px; right: 20px; background: rgb(20, 92, 94); border-radius: 5px; overflow: hidden; z-index: 99;">
-    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">Home</a>
-    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">About</a>
-    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">Contact</a>
+  <div id="mobileMenu" style="display: none; position: absolute; top: 60px; right: 0px; background: rgb(20, 92, 94); border-radius: 5px; overflow: hidden; z-index: 99; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px;">
+    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Home</a>
+    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">About</a>
+    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Contact</a>
   </div>
 </nav>
 
+<!-- JavaScript -->
 <script>
   const menuIcon = document.getElementById('menuIcon');
   const mobileMenu = document.getElementById('mobileMenu');
 
-  // Ensure menu starts hidden on page load
-  window.addEventListener('load', () => {
-    mobileMenu.style.display = 'none';
-  });
+  let isMenuOpen = false;
 
   menuIcon.addEventListener('click', (e) => {
     e.stopPropagation();
-    mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
+    isMenuOpen = !isMenuOpen;
+    mobileMenu.style.display = isMenuOpen ? 'block' : 'none';
   });
 
   document.addEventListener('click', function (event) {
     if (!mobileMenu.contains(event.target) && !menuIcon.contains(event.target)) {
       mobileMenu.style.display = 'none';
+      isMenuOpen = false;
     }
   });
 
@@ -55,28 +56,6 @@
     e.stopPropagation();
   });
 </script>
-
-
-<script>
-  const menuIcon = document.getElementById('menuIcon');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  menuIcon.addEventListener('click', (e) => {
-    e.stopPropagation(); 
-    mobileMenu.style.display = (mobileMenu.style.display === 'flex') ? 'none' : 'flex';
-  });
-
-  document.addEventListener('click', function (event) {
-    if (!mobileMenu.contains(event.target) && !menuIcon.contains(event.target)) {
-      mobileMenu.style.display = 'none';
-    }
-  });
-
-  mobileMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-</script>
-
 
 
 
@@ -107,98 +86,33 @@
     </div>
   </header>
 
-  <section style="
-  background-color: #000;
-  color: white;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  margin: 0 auto;
-  max-width: 1200px;
-">
-  <!-- Heading -->
-  <h2 style="
-    grid-column: 1 / -1;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-  ">
-    Startup Kit packed with nice features
-  </h2>
+  <section style="background-color:#000;color:white;padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;text-align:center;font-family: 'Arial', sans-serif;margin: 0 auto; max-width: 1200px;">
+    <h2 style="grid-column:1/-1;margin-bottom:20px;font-size:1.5rem;font-weight:600;letter-spacing:1px;">Startup Kit packed with nice features</h2>
 
-  <!-- Feature 1 -->
-  <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.1)';">
-    <h3 style="
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    ">Fast Delivery</h3>
-    <p style="
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-top: 10px;
-      color: #333;
-      letter-spacing: 0.5px;
-    ">We simplify your sourcing process by collecting materials from various suppliers and delivering them to you in one convenient package.</p>
-  </div>
+    <!-- First Feature Box -->
+    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Fast Delivery</h3>
+      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">We simplify your sourcing process by collecting materials from various suppliers and delivering them to you in one convenient package.</p>
+    </div>
 
-  <!-- Feature 2 -->
-  <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.1)';">
-    <h3 style="
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    ">Custom Kits</h3>
-    <p style="
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-top: 10px;
-      color: #333;
-      letter-spacing: 0.5px;
-    ">Whether you're working on a student project, a company prototype, or an industrial-scale project, we provide personalized kits tailored to your specific requirements.</p>
-  </div>
+    <!-- Second Feature Box -->
+    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Custom Kits</h3>
+      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">Whether you're working on a student project, a company prototype, or an industrial-scale project, we provide personalized kits tailored to your specific requirements.</p>
+    </div>
 
-  <!-- Feature 3 -->
-  <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.1)';">
-    <h3 style="
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    ">Verified Materials</h3>
-    <p style="
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-top: 10px;
-      color: #333;
-      letter-spacing: 0.5px;
-    ">Get top-notch, reliable components for all your projects. We only source from trusted suppliers, ensuring consistency and performance.</p>
-  </div>
+    <!-- Third Feature Box -->
+    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Verified Materials</h3>
+      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">Get top-notch, reliable components for all your projects. We only source from trusted suppliers, ensuring consistency and performance.</p>
+    </div>
 
-  <!-- Feature 4 -->
-  <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.1)';">
-    <h3 style="
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    ">Nationwide Support</h3>
-    <p style="
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-top: 10px;
-      color: #333;
-      letter-spacing: 0.5px;
-    ">From any city or village, we deliver everywhere.</p>
-  </div>
+    <!-- Fourth Feature Box -->
+    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
+      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Nationwide Support</h3>
+      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">From any city or village, we deliver everywhere.</p>
+    </div>
 </section>
-
 
 
   <section style="background-color:#222;padding:20px 10px;text-align:center;color:white;">
