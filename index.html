@@ -120,31 +120,40 @@
   <h2 style="font-size:1.5rem;margin-bottom:25px;font-weight:600;letter-spacing:0.5px;">Streamline Your Project Creation with Ease.</h2>
 
   <!-- Transparent Button with Bulb-Like Yellow Glow -->
-  <button onclick="openModal()" style="background: transparent; color: rgb(244, 197, 66); padding: 14px 30px; font-size: 1rem; border: 2px solid rgb(244, 197, 66); border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; position: relative; box-shadow: none; transform: scale(1.05);" onmouseover="this.style.backgroundColor='#f4c542'; this.style.color='white'; this.style.boxShadow='0 0 20px 8px rgba(244, 197, 66, 0.8)'; this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#f4c542'; this.style.boxShadow='none'; this.style.transform='scale(1);'">
+  <button onclick="openModal()" style="background: transparent; color: rgb(244, 197, 66); padding: 14px 30px; font-size: 1rem; border: 2px solid rgb(244, 197, 66); border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; position: relative; box-shadow: none; transform: scale(1.05);" onmouseover="this.style.backgroundColor='#f4c542'; this.style.color='white'; this.style.boxShadow='0 0 20px 8px rgba(244, 197, 66, 0.8)'; this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#f4c542'; this.style.boxShadow='none'; this.style.transform='scale(1);'" fdprocessedid="an04u">
     Contact Us
   </button>
 </section>
 
 <!-- Modal Popup -->
-<div id="myModal" class="modal" style="display: none;">
+<div id="myModal" class="modal" style="display: flex;">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">×</span>
     <h2 style="text-align: center;">Fill in the Form</h2>
     <form id="form" onsubmit="submitForm(event)">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required="">
+    <input type="text" id="name" name="name" placeholder="Enter your name" required="" fdprocessedid="itnh47">
 
-      <label for="contact">Contact Number</label>
-      <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="">
+    <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="" fdprocessedid="ska6d">
+     <input type="email" id="email" name="email" placeholder="Enter your email" required="" fdprocessedid="2n2i24">
 
-      <label for="address">Address</label>
-      <textarea id="address" name="address" placeholder="Enter your address" rows="4" required=""></textarea>
+    <textarea id="address" name="address" placeholder="Enter your address" rows="4" required=""></textarea>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required="">
+    <!-- New Address Detail Fields -->
+    <input type="text" id="country" name="country" placeholder="Enter your country" required="" fdprocessedid="qqtphj">
+    <input type="text" id="state" name="state" placeholder="Enter your state" required="" fdprocessedid="1jtg2go">
+    <input type="text" id="district" name="district" placeholder="Enter your district" required="" fdprocessedid="dmggq">
+    <input type="text" id="city" name="city" placeholder="Enter your city" required="" fdprocessedid="vsfuya">
+    <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required="" fdprocessedid="mok6nb">
+    
 
-      <button type="submit">Submit</button>
-    </form>
+   
+
+    <!-- New Query Textarea -->
+    <textarea id="query" name="query" placeholder="Enter your query" rows="4" required=""></textarea>
+
+    <button type="submit" fdprocessedid="eb7m2">Submit</button>
+</form>
+
   </div>
 </div>
 
@@ -345,4 +354,5 @@
 
 
 
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
 <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
