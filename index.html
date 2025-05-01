@@ -5,75 +5,38 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
 </head>
-<body style="margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;background-color:a#000000;color:#333;">
-<nav style="width: 100%; background-color: #145C5E; padding: 10px 20px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; color: white; position: relative; font-family: 'Poppins', sans-serif;">
+<body style="margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;background-color:#000000;color:#333;">
+<nav style="width: 100%; background-color: #145C5E; padding: 10px 20px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; color: white; position: relative;">
 
-  <!-- Logo -->
+  <!-- Logo / Name -->
   <div style="font-size: 20px; font-weight: bold;">
     Project<span style="color: #D6933A;">o</span>kart
   </div>
 
-  <!-- Desktop Links (Hidden) -->
+  <!-- Desktop Links -->
   <div id="navLinks" style="display: none; gap: 20px;">
     <a href="#" style="color: white; text-decoration: none;">Home</a>
     <a href="#" style="color: white; text-decoration: none;">About</a>
     <a href="#" style="color: white; text-decoration: none;">Contact</a>
   </div>
 
-  <!-- Three Dot Icon -->
-  <div id="menuIcon" style="cursor: pointer; font-size: 24px; user-select: none; display: block;">⋮</div>
+  <!-- Mobile Dots -->
+  <div id="menuIcon" style="display: block; cursor: pointer; font-size: 24px;">⋮</div>
 
-  <!-- Mobile Menu (Vertical) -->
-  <div id="mobileMenu" style="position: absolute; top: 50px; right: 0px; background: rgb(20, 92, 94); border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px; display: block; flex-direction: column; z-index: 999;">
-    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Home</a>
-    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">About</a>
-    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Contact</a>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" style="display: none; position: absolute; top: 60px; right: 20px; background: #145C5E; border-radius: 5px; overflow: hidden; z-index: 99;">
+    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">Home</a>
+    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">About</a>
+    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">Contact</a>
   </div>
 </nav>
-
-<script>
-  const menuIcon = document.getElementById('menuIcon');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  menuIcon.addEventListener('click', (e) => {
-    e.stopPropagation(); 
-    mobileMenu.style.display = (mobileMenu.style.display === 'flex') ? 'none' : 'flex';
-  });
-
-  document.addEventListener('click', function (event) {
-    if (!mobileMenu.contains(event.target) && !menuIcon.contains(event.target)) {
-      mobileMenu.style.display = 'none';
-    }
-  });
-
-  mobileMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <header style="background: linear-gradient(to right, #004aad, #007bff); padding: 60px 15px; text-align: center; color: white; background-image: url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5'); background-size: cover; background-position: center; position: relative; height: 220px; overflow: hidden;">
+  <header style="background: linear-gradient(to right, #004aad, #007bff); padding: 60px 15px; text-align: center; color: white; background-image: url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5'); background-size: cover; background-position: center; position: relative; height: 180px; overflow: hidden;">
     <video autoplay="" loop="" muted="" playsinline="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
       <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.mp4" type="video/mp4">
       <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.webm" type="video/webm">
     </video>
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
-    <div style="position: relative; z-index: 2; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; padding: 15px;">
+    <div style="position: relative; z-index: 2; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; padding: 5px;">
       <h1 style="font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: bold; color: white; margin: 0;">project<span style="color:#D6933A;">o</span>kart</h1>
       <p style="font-size: clamp(0.9rem, 2.5vw, 1.1rem); max-width: 90%; color: #f0f0f0; margin-top: 10px;">
         Projectokart is the ultimate service that collects all your project materials from different sources and brings them together in one place! Whether you're in a school, company, or industry, we've got you covered.
@@ -133,7 +96,7 @@
     <!-- Contact Info -->
     <div style="flex: 1 1 250px;">
       <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 15px;">Contact</h3>
-      <p style="color: #000; font-size: 0.9rem; margin: 6px 0;">📞 9050778830</p>
+      <p style="color: #ccc; font-size: 0.9rem; margin: 6px 0;">📞 9050778830</p>
       <p style="color: #ccc; font-size: 0.9rem; margin: 6px 0;">📧 Contact@projectokart.com</p>
       <p style="color: #ccc; font-size: 0.9rem; margin: 6px 0;">👤 Dev Sharma</p>
     </div>
@@ -156,7 +119,7 @@
     </div>
 
     <!-- Logo -->
-    <div style="background-color: #111;flex: 1 1 250px; text-align: center;">
+    <div style="flex: 1 1 250px; text-align: center;">
       <img src="p2.png" alt="Projectokart Logo" style="max-width: 150px; margin-bottom: 10px;">
       <p style="color: #ccc; font-size: 0.8rem;">© 2025 Projectokart. All rights reserved.</p>
     </div>
