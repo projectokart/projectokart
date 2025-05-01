@@ -46,29 +46,20 @@
   </section>
 
   <section style="background-color:#222;padding:20px 10px;text-align:center;color:white;">
-    <h2 style="font-size:1.4rem;margin-bottom:25px;font-weight:600;letter-spacing:0.5px;">Streamline Your Project Creation with Ease.</h2>
-    <button onclick="openModal()" style="background: transparent; color: rgb(244, 197, 66); padding: 14px 30px; font-size: 1rem; border: 2px solid rgb(244, 197, 66); border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; position: relative;" onmouseover="this.style.backgroundColor='#f4c542'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#f4c542';" fdprocessedid="4kzp6d">
+  <h2 style="font-size:1.4rem;margin-bottom:25px;font-weight:600;letter-spacing:0.5px;">
+    Streamline Your Project Creation with Ease.
+  </h2>
+
+  <!-- Button opens contact.html -->
+  <a href="contact.html" style="text-decoration: none;">
+    <button style="background: transparent; color: rgb(244, 197, 66); padding: 14px 30px; font-size: 1rem; border: 2px solid rgb(244, 197, 66); border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;">
       Contact Us
     </button>
-  </section>
+  </a>
+</section>
 
-  <div id="myModal" style="display: none; position: fixed; z-index: 999; left: 0px; top: 0px; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.6); padding: 10px;">
-    <div style="background-color: #fff; margin: 30px auto; padding: 20px; border-radius: 10px; max-width: 500px; width: 100%; box-sizing: border-box;">
-      <span style="float: right; font-size: 24px; cursor: pointer;" onclick="closeModal()">×</span>
-      <h2 style="text-align: center;">Fill in the Form</h2>
-      <form id="form" onsubmit="submitForm(event)">
-        <input type="text" id="name" name="name" placeholder="Enter your name" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
-        <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
-        <input type="email" id="email" name="email" placeholder="Enter your email" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
-        <textarea id="address" name="address" placeholder="Enter your address" rows="4" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;"></textarea>
-        <input type="text" id="country" name="country" placeholder="Enter your country" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
-        <input type="text" id="state" name="state" placeholder="Enter your state" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
-         <input type="text" id="district" name="state" placeholder="Enter your district" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
-       <input type="number" id="pincode" name="state" placeholder="Enter your pincode" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
-       
-        <textarea id="message" name="message" placeholder="Enter your message" rows="4" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;"></textarea>
-        <button type="submit" style="background-color: rgb(0, 82, 204); color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 100%; margin-top: 15px;">Submit</button>
-      </form>
+
+ 
     </div>
   </div>
 <footer style="background-color:#111;color:#fff;padding:15px 15px;">
@@ -90,39 +81,6 @@
     </div>
   </div>
 </footer>
-  <script>
-    function openModal() {
-      document.getElementById('myModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('myModal').style.display = 'none';
-    }
-
-    function submitForm(event) {
-      event.preventDefault(); // Prevent page refresh on form submission
-
-      const form = document.getElementById('form');
-      const data = new FormData(form);
-
-      fetch('/submit', {
-        method: 'POST',
-        body: data,
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.success) {
-          alert('Form submitted successfully!');
-          closeModal(); // Close modal on success
-        } else {
-          alert('Something went wrong. Please try again.');
-        }
-      })
-      .catch(error => {
-        alert('Error: ' + error);
-      });
-    }
-  </script>
-
+ 
 
 </body></html>
