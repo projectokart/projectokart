@@ -13,23 +13,49 @@
     Project<span style="color: #D6933A;">o</span>kart
   </div>
 
-  <!-- Desktop Links (Hidden) -->
+  <!-- Hidden desktop nav -->
   <div id="navLinks" style="display: none; gap: 20px;">
     <a href="#" style="color: white; text-decoration: none;">Home</a>
     <a href="#" style="color: white; text-decoration: none;">About</a>
     <a href="#" style="color: white; text-decoration: none;">Contact</a>
   </div>
 
-  <!-- Three Dot Icon -->
-  <div id="menuIcon" style="cursor: pointer; font-size: 24px; user-select: none; display: block;">⋮</div>
+  <!-- Three dots -->
+  <div id="menuIcon" style="cursor: pointer; font-size: 24px;">⋮</div>
 
-  <!-- Mobile Menu (Vertical) -->
-  <div id="mobileMenu" style="position: absolute; top: 50px; right: 0px; background: rgb(20, 92, 94); border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px; display: block; flex-direction: column; z-index: 999;">
-    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Home</a>
-    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">About</a>
-    <a href="#" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Contact</a>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" style="display: none; position: absolute; top: 60px; right: 20px; background: rgb(20, 92, 94); border-radius: 5px; overflow: hidden; z-index: 99;">
+    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">Home</a>
+    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">About</a>
+    <a href="#" style="display: block; padding: 10px; color: white; text-decoration: none;">Contact</a>
   </div>
 </nav>
+
+<script>
+  const menuIcon = document.getElementById('menuIcon');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  // Ensure menu starts hidden on page load
+  window.addEventListener('load', () => {
+    mobileMenu.style.display = 'none';
+  });
+
+  menuIcon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!mobileMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+      mobileMenu.style.display = 'none';
+    }
+  });
+
+  mobileMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+</script>
+
 
 <script>
   const menuIcon = document.getElementById('menuIcon');
@@ -189,6 +215,7 @@
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
   });
 </script>
+
 
 
 </body></html>
