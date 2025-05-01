@@ -126,33 +126,34 @@
 </section>
 
 <!-- Modal Popup -->
-<div id="myModal" class="modal" style="display: flex;">
+<div id="myModal" class="modal" style="display: none;">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">×</span>
     <h2 style="text-align: center;">Fill in the Form</h2>
-    <form id="form" onsubmit="submitForm(event)">
-    <input type="text" id="name" name="name" placeholder="Enter your name" required="" fdprocessedid="itnh47">
+    <form id="form" onsubmit="submitForm(event)" method="POST" action="YOUR_WEB_APP_URL">
 
-    <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="" fdprocessedid="ska6d">
-     <input type="email" id="email" name="email" placeholder="Enter your email" required="" fdprocessedid="2n2i24">
+  <input type="text" id="name" name="name" placeholder="Enter your name" required="" fdprocessedid="itnh47">
 
-    <textarea id="address" name="address" placeholder="Enter your address" rows="4" required=""></textarea>
+  <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="" fdprocessedid="ska6d">
 
-    <!-- New Address Detail Fields -->
-    <input type="text" id="country" name="country" placeholder="Enter your country" required="" fdprocessedid="qqtphj">
-    <input type="text" id="state" name="state" placeholder="Enter your state" required="" fdprocessedid="1jtg2go">
-    <input type="text" id="district" name="district" placeholder="Enter your district" required="" fdprocessedid="dmggq">
-    <input type="text" id="city" name="city" placeholder="Enter your city" required="" fdprocessedid="vsfuya">
-    <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required="" fdprocessedid="mok6nb">
-    
+  <textarea id="address" name="address" placeholder="Enter your address" rows="4" required=""></textarea>
 
-   
+  <!-- New Detailed Address Fields -->
+  <input type="text" id="state" name="state" placeholder="Enter your state" required="">
+  <input type="text" id="district" name="district" placeholder="Enter your district" required="">
+  <input type="text" id="city" name="city" placeholder="Enter your city" required="">
+  <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required="">
+  <input type="text" id="country" name="country" placeholder="Enter your country" required="">
 
-    <!-- New Query Textarea -->
-    <textarea id="query" name="query" placeholder="Enter your query" rows="4" required=""></textarea>
+  <input type="email" id="email" name="email" placeholder="Enter your email" required="" fdprocessedid="2n2i24">
 
-    <button type="submit" fdprocessedid="eb7m2">Submit</button>
+  <!-- Query Field as Textarea -->
+  <textarea id="query" name="query" placeholder="Enter your query" rows="4" required=""></textarea>
+
+  <button type="submit" fdprocessedid="eb7m2">Submit</button>
+
 </form>
+
 
   </div>
 </div>
@@ -319,38 +320,50 @@
 
 
   <script>
-    function openModal() {
-      document.getElementById("myModal").style.display = "flex";
-    }
-    function closeModal() {
-      document.getElementById("myModal").style.display = "none";
-    }
-    function submitForm(event) {
-      event.preventDefault();
-      const formData = {
-        name: document.getElementById("name").value,
-        contact: document.getElementById("contact").value,
-        address: document.getElementById("address").value,
-        email: document.getElementById("email").value,
-      };
-      fetch("YOUR_GOOGLE_APP_SCRIPT_URL", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        alert("Form submitted successfully!");
-        closeModal();
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("There was an issue with the form submission. Please try again.");
-      });
-    }
-  </script>
+  function openModal() {
+    document.getElementById("myModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    const formData = {
+      name: document.getElementById("name").value,
+      contact: document.getElementById("contact").value,
+      address: document.getElementById("address").value,
+      state: document.getElementById("state").value,
+      district: document.getElementById("district").value,
+      city: document.getElementById("city").value,
+      pincode: document.getElementById("pincode").value,
+      country: document.getElementById("country").value,
+      email: document.getElementById("email").value,
+      query: document.getElementById("query").value,
+    };
+
+    fetch("YOUR_GOOGLE_APP_SCRIPT_URL", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+    .then((response) => response.text())
+    .then((data) => {
+      alert("Form submitted successfully!");
+      closeModal();
+      document.getElementById("form").reset(); // optional: reset form after submission
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("There was an issue with the form submission. Please try again.");
+    });
+  }
+</script>
+
 
 
 
