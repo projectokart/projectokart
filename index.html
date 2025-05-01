@@ -142,6 +142,8 @@
 
     .footer-column p,
     .footer-column a {
+display: block;
+  
       color: #ccc;
       font-size: 0.9rem;
       margin-bottom: 10px;
@@ -234,10 +236,38 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome To Projectokart</h1>
-    <p>Projectokart is the ultimate service that collects all your project materials from different sources and brings them together in one place! Whether you're in a school, company, or industry, we've got you covered.</p>
-  </header>
+  <header style="position: relative; height: 300px; overflow: hidden;">
+
+  <!-- Background Video -->
+  <video autoplay="" loop="" muted="" playsinline="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                object-fit: cover; z-index: 0;">
+    <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.mp4" type="video/mp4">
+    <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.webm" type="video/webm">
+  </video>
+
+  <!-- Overlay -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+              background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+
+  <!-- Content -->
+  <div style="position: relative; z-index: 2; color: white;
+              display: flex; flex-direction: column; justify-content: center;
+              align-items: center; text-align: center; height: 100%; padding: 20px;">
+
+    <h1 style="font-size: 36px; font-weight: bold; color: white;">
+      project<span style="color: #D6933A;">o</span>kart
+    </h1>
+    
+    <p style="font-size: 16px; max-width: 600px; color: #f0f0f0;">
+      Projectokart is the ultimate service that collects all your project materials from different sources and brings them together in one place! Whether you're in a school, company, or industry, we've got you covered.
+    </p>
+  </div>
+
+</header>
+
+
+
+
 
   <section class="features">
     <h2>Startup Kit packed with nice features</h2>
@@ -265,7 +295,7 @@
   </section>
 
   <!-- Modal -->
-  <div id="myModal" class="modal">
+  <div id="myModal" class="modal" style="display: none;">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">×</span>
       <h2>Fill in the Form</h2>
