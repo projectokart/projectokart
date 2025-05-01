@@ -1,127 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projectokart</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
-
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background-color: #105b63;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
     }
 
     header {
-      width: 100%;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #0e4e57;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fbb040;
-    }
-
-    nav a {
-      margin-left: 20px;
+      background: linear-gradient(to right, #004aad, #007bff);
+      padding: 100px 20px;
+      text-align: center;
       color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
+      background-image: url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5');
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
 
-    nav a:hover {
-      color: #fbb040;
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 74, 173, 0.8);
     }
 
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+    }
+
+    .cta {
+      background: #f0f0f0;
+      padding: 60px 20px;
       text-align: center;
     }
 
-    .search-box {
-      margin-top: 30px;
-      width: 100%;
-      max-width: 500px;
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
     }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 15px 20px;
-      border-radius: 30px;
-      border: none;
+    .cta button {
+      background: #007bff;
+      color: white;
+      padding: 14px 30px;
       font-size: 1rem;
-      outline: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 24px;
+    .cta button:hover {
+      background: #0052cc;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; 
+      position: fixed; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal form input,
+    .modal form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .modal form button {
+      background: #007bff;
+      color: white;
+      padding: 12px 25px;
       border: none;
-      border-radius: 30px;
-      background-color: #fbb040;
-      color: #105b63;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .modal form button:hover {
+      background: #0052cc;
+    }
+
+    .modal form label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
     }
 
-    button:hover {
-      background-color: #e09a2d;
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
     }
 
-    footer {
-      padding: 10px;
-      font-size: 0.9rem;
-      color: #ccc;
+    .confirmation-message {
+      display: none;
+      color: green;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 20px;
     }
+
   </style>
 </head>
+
 <body>
+  <!-- Call to Action Section -->
+  <section class="cta">
+    <h2>Streamline Your Project Creation with Ease</h2>
+    <button id="openModal">Get Started</button>
+  </section>
 
-  <header>
-    <div class="logo">Projectokart</div>
-    <nav>
-      <!-- Correct Links to Other Pages -->
-      <a href="about.html">About Us</a>
-      <a href="services.html">Our Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <div class="main">
-    <h1>Welcome to Projectokart</h1>
-    <p>Search your projects & ideas just like Google.</p>
-
-    <div class="search-box">
-      <input type="text" placeholder="Search anything...">
-      <br />
-      <button>Search</button>
+  <!-- Modal Form Section -->
+  <div class="modal" id="formModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Get Started with Projectokart</h2>
+      <form id="projectForm" action="YOUR_GOOGLE_APPS_SCRIPT_URL" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" required>
+        <label for="contact">Your Contact Number</label>
+        <input type="tel" name="contact" id="contact" required>
+        <label for="address">Your Address</label>
+        <input type="text" name="address" id="address" required>
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 
+  <!-- Confirmation Message -->
+  <div class="confirmation-message" id="confirmationMessage">
+    <p>Thank you! Your form has been submitted successfully.</p>
+  </div>
+
+  <!-- Footer Section -->
   <footer>
     © 2025 Projectokart. All rights reserved.
   </footer>
 
+  <script>
+    // Get the modal
+    var modal = document.getElementById("formModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("openModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementById("closeModal");
+
+    // Get the confirmation message element
+    var confirmationMessage = document.getElementById("confirmationMessage");
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Handle form submission with AJAX
+    document.getElementById("projectForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent the default form submission
+      
+      var formData = new FormData(this);
+
+      // Make AJAX request to Google Apps Script
+      fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => response.text())
+      .then(data => {
+        // If submission is successful, show confirmation message
+        if (data === "Success") {
+          confirmationMessage.style.display = "block";
+          modal.style.display = "none";  // Close the modal
+        }
+      })
+      .catch(error => {
+        alert("Error: " + error);
+      });
+    });
+  </script>
 </body>
 </html>
