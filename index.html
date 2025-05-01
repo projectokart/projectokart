@@ -76,27 +76,13 @@
   <h2 style="grid-column:1/-1;margin-bottom:30px;font-size:2.2rem;font-weight:600;letter-spacing:1px;">Startup Kit packed with nice features</h2>
   
   <!-- First Feature Box -->
-  <div style="
-    background: white;
-    color: #0052cc;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1)';">
+  <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1)';">
     <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Fast Delivery</h3>
     <p style="font-size:1rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">We simplify your sourcing process by collecting materials from various suppliers and delivering them to you in one convenient package.</p>
   </div>
   
   <!-- Second Feature Box -->
-  <div style="
-    background: white;
-    color: #0052cc;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1)';">
+  <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1)';">
     <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Custom Kits</h3>
     <p style="font-size:1rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">Whether you're working on a student project, a company prototype, or an industrial-scale project, we provide personalized kits tailored to your specific requirements.</p>
   </div>
@@ -126,37 +112,26 @@
 </section>
 
 <!-- Modal Popup -->
-<div id="myModal" class="modal" style="display: none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
+<div id="myModal" style="display: flex; position: fixed; z-index: 999; left: 0px; top: 0px; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.6); padding: 10px;">
+  <div style="background-color: #fff; margin: 30px auto; padding: 20px; border-radius: 10px; max-width: 500px; width: 100%; box-sizing: border-box; max-height: 90vh; overflow-y: auto;">
+    <span style="float: right; font-size: 24px; cursor: pointer;" onclick="closeModal()">×</span>
     <h2 style="text-align: center;">Fill in the Form</h2>
-    <form id="form" onsubmit="submitForm(event)" method="POST" action="YOUR_WEB_APP_URL">
-
-  <input type="text" id="name" name="name" placeholder="Enter your name" required="" fdprocessedid="itnh47">
-
-  <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="" fdprocessedid="ska6d">
-
-  <textarea id="address" name="address" placeholder="Enter your address" rows="4" required=""></textarea>
-
-  <!-- New Detailed Address Fields -->
-  <input type="text" id="state" name="state" placeholder="Enter your state" required="">
-  <input type="text" id="district" name="district" placeholder="Enter your district" required="">
-  <input type="text" id="city" name="city" placeholder="Enter your city" required="">
-  <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required="">
-  <input type="text" id="country" name="country" placeholder="Enter your country" required="">
-
-  <input type="email" id="email" name="email" placeholder="Enter your email" required="" fdprocessedid="2n2i24">
-
-  <!-- Query Field as Textarea -->
-  <textarea id="query" name="query" placeholder="Enter your query" rows="4" required=""></textarea>
-
-  <button type="submit" fdprocessedid="eb7m2">Submit</button>
-
-</form>
-
-
+    <form id="form" onsubmit="submitForm(event)">
+      <input type="text" id="name" name="name" placeholder="Enter your name" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <input type="email" id="email" name="email" placeholder="Enter your email" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <textarea id="address" name="address" placeholder="Enter your address" rows="4" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;"></textarea>
+      <input type="text" id="country" name="country" placeholder="Enter your country" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <input type="text" id="state" name="state" placeholder="Enter your state" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <input type="text" id="district" name="district" placeholder="Enter your district" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <input type="text" id="city" name="city" placeholder="Enter your city" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;">
+      <textarea id="query" name="query" placeholder="Enter your query" rows="4" required="" style="width: 100%; margin: 8px 0; padding: 10px; box-sizing: border-box;"></textarea>
+      <button type="submit" style="width: 100%; margin: 8px 0; padding: 10px; background-color: #145C5E; color: white; border: none; cursor: pointer; border-radius: 5px;">Submit</button>
+    </form>
   </div>
 </div>
+
 
 <script>
   // Open the modal
@@ -320,52 +295,41 @@
 
 
   <script>
-  function openModal() {
-    document.getElementById("myModal").style.display = "flex";
-  }
-
-  function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-  }
-
-  function submitForm(event) {
-    event.preventDefault();
-
-    const formData = {
-      name: document.getElementById("name").value,
-      contact: document.getElementById("contact").value,
-      address: document.getElementById("address").value,
-      state: document.getElementById("state").value,
-      district: document.getElementById("district").value,
-      city: document.getElementById("city").value,
-      pincode: document.getElementById("pincode").value,
-      country: document.getElementById("country").value,
-      email: document.getElementById("email").value,
-      query: document.getElementById("query").value,
-    };
-
-    fetch("YOUR_GOOGLE_APP_SCRIPT_URL", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-    .then((response) => response.text())
-    .then((data) => {
-      alert("Form submitted successfully!");
-      closeModal();
-      document.getElementById("form").reset(); // optional: reset form after submission
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      alert("There was an issue with the form submission. Please try again.");
-    });
-  }
-</script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+    function submitForm(event) {
+      event.preventDefault();
+      const formData = {
+        name: document.getElementById("name").value,
+        contact: document.getElementById("contact").value,
+        address: document.getElementById("address").value,
+        email: document.getElementById("email").value,
+      };
+      fetch("YOUR_GOOGLE_APP_SCRIPT_URL", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("Form submitted successfully!");
+        closeModal();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("There was an issue with the form submission. Please try again.");
+      });
+    }
+  </script>
 
 
 
-
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
 <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
 <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
