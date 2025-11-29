@@ -1,229 +1,921 @@
-<html lang="en"><head>
+<!doctype html>
+<html lang="en" class="h-full w-full">
+ <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projectokart</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
-</head>
-<body style="margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;background-color:#000000;color:#333;">
-<!-- Navbar -->
-<nav style="width: 100%; background-color: #145C5E; padding: 10px 20px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; color: white; position: relative; font-family: 'Poppins', sans-serif;">
-
-  <!-- Logo -->
-  <div style="font-size: 20px; font-weight: bold;">
-    Project<span style="color: #D6933A;">o</span>kart
-  </div>
-
-  <!-- Desktop Links (hidden for now) -->
-  <div id="navLinks" style="display: flex; gap: 20px;">
-    <a href="index.html" ="color:="" white;="" text-decoration:="" none;"="">Home</a>
-    <a href="about.html" style="color: white; text-decoration: none;">About</a>
-    <a href="contact.html" style="color: white; text-decoration: none;">Contact</a>
-  </div>
-
-  <!-- Three-dot mobile icon -->
-  <div id="menuIcon" style="cursor: pointer; font-size: 24px; display: none;">⋮</div>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" style="display: none; position: absolute; top: 60px; right: 0px; background: rgb(20, 92, 94); border-radius: 5px; overflow: hidden; z-index: 99; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px;">
-    <a href="home.html" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Home</a>
-    <a href="about.html" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">About</a>
-    <a href="contact.html" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">Contact</a>
-    <a href="test.html" style="display: block; padding: 10px 20px; color: white; text-decoration: none;">test</a>
-  </div>
-</nav>
-
-<!-- JavaScript -->
-<script>
-  const menuIcon = document.getElementById('menuIcon');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  let isMenuOpen = false;
-
-  menuIcon.addEventListener('click', (e) => {
-    e.stopPropagation();
-    isMenuOpen = !isMenuOpen;
-    mobileMenu.style.display = isMenuOpen ? 'block' : 'none';
-  });
-
-  document.addEventListener('click', function (event) {
-    if (!mobileMenu.contains(event.target) && !menuIcon.contains(event.target)) {
-      mobileMenu.style.display = 'none';
-      isMenuOpen = false;
+  <title>ProjectoKart – Multi-Page Educational Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
     }
-  });
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
 
-  mobileMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-</script>
+    @keyframes float-soft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
 
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
+    .page-transition {
+      animation: fade-in 0.4s ease-out;
+    }
 
+    .card-hover {
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    }
 
+    .focus-ring:focus-visible {
+      outline: 3px solid #facc15;
+      outline-offset: 2px;
+    }
 
+    .photo-block {
+      background-image: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+    }
 
+    .nav-link {
+      position: relative;
+      transition: color 200ms ease;
+    }
 
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      border-radius: 2px;
+    }
 
-
-
-
-
-
-
-
-
-  <header style="background: linear-gradient(to right, #004aad, #007bff); padding: 60px 15px; text-align: center; color: white; background-image: url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5'); background-size: cover; background-position: center; position: relative; height: 180px; overflow: hidden;">
-    <video autoplay="" loop="" muted="" playsinline="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
-      <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.mp4" type="video/mp4">
-      <source src="https://cdn.prod.website-files.com/68022e7258b665333381fbd2/68022e7258b665333381fe28_For_Wes-transcode.webm" type="video/webm">
-    </video>
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
-    <div style="position: relative; z-index: 2; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; padding: 15px;">
-      <h1 style="font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: bold; color: white; margin: 0;">Project<span style="color:#D6933A;">o</span>kart</h1>
-      <p style="font-size: clamp(0.9rem, 2.5vw, 1.1rem); max-width: 90%; color: #f0f0f0; margin-top: 10px;">
-  
-</p><div style="
-  color: rgb(244, 197, 66);
-  padding: 15px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  position: relative;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.1); /* Yellow transparent background */
-  animation: highlight 1.5s ease-in-out infinite alternate;
-">
-  <strong>Projectokart gives you everything you need for your projects – all in one place!</strong>
-</div>
-
-<style>
-  @keyframes highlight {
-    0% { box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
-    100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
-  }
-</style>
-
-
-<br>
- Whether you're a student, professional, or working in the industry, we source and organize all your project materials for you. Say goodbye to the hassle of searching—just focus on creating amazing projects. We also design and manufacture the products, so you can get straight to work.
-<p></p>
-
+    .hidden-page {
+      display: none;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full w-full">
+  <div id="app-root" class="w-full h-full bg-slate-950 text-slate-50 flex flex-col overflow-y-auto"><!-- HEADER -->
+   <header class="w-full sticky top-0 z-50 bg-slate-950/95 backdrop-blur-sm border-b border-slate-800/70">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main navigation"><button class="flex items-center gap-3 focus-ring rounded-lg" onclick="navigateTo('home')" type="button">
+      <div class="w-10 h-10 rounded-2xl flex items-center justify-center bg-gradient-to-tr from-sky-400 to-emerald-400 shadow-lg">
+       <svg viewbox="0 0 32 32" class="w-7 h-7" aria-hidden="true"><rect x="4" y="6" width="10" height="20" rx="2" fill="#0f172a"></rect> <rect x="18" y="10" width="10" height="16" rx="2" fill="#fb923c"></rect> <circle cx="9" cy="9" r="2" fill="#22c55e"></circle> <circle cx="23" cy="13" r="2" fill="#38bdf8"></circle>
+       </svg>
+      </div>
+      <div class="flex flex-col"><span id="site-title" class="text-lg font-extrabold tracking-tight">ProjectoKart</span> <span id="tagline" class="text-xs text-slate-300">From curiosity to creation</span>
+      </div></button> <button class="md:hidden text-slate-100 focus-ring px-3 py-2 rounded-lg border border-slate-700 text-sm" type="button" aria-label="Toggle menu" onclick="toggleMobileNav()"> Menu </button>
+     <div id="desktop-nav" class="hidden md:flex items-center gap-6 text-sm font-medium"><button class="nav-link hover:text-emerald-300 transition-colors focus-ring rounded-md px-2 py-1" data-page="home" onclick="navigateTo('home')" type="button">Home</button> <button class="nav-link hover:text-emerald-300 transition-colors focus-ring rounded-md px-2 py-1" data-page="programs" onclick="navigateTo('programs')" type="button">Programs</button> <button class="nav-link hover:text-emerald-300 transition-colors focus-ring rounded-md px-2 py-1" data-page="journey" onclick="navigateTo('journey')" type="button">Journey</button> <button class="nav-link hover:text-emerald-300 transition-colors focus-ring rounded-md px-2 py-1" data-page="projects" onclick="navigateTo('projects')" type="button">Projects</button> <button class="nav-link hover:text-emerald-300 transition-colors focus-ring rounded-md px-2 py-1" data-page="contact" onclick="navigateTo('contact')" type="button">Contact</button> <button class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold shadow-lg focus-ring" id="nav-cta-btn" onclick="navigateTo('contact')" type="button"> Join Now </button>
+     </div>
+    </nav>
+    <div id="mobile-nav" class="md:hidden hidden border-t border-slate-800 bg-slate-950/95">
+     <div class="max-w-7xl mx-auto px-6 py-3 flex flex-col gap-2 text-sm"><button class="py-1 hover:text-emerald-300 text-left" onclick="navigateTo('home'); toggleMobileNav();" type="button">Home</button> <button class="py-1 hover:text-emerald-300 text-left" onclick="navigateTo('programs'); toggleMobileNav();" type="button">Programs</button> <button class="py-1 hover:text-emerald-300 text-left" onclick="navigateTo('journey'); toggleMobileNav();" type="button">Journey</button> <button class="py-1 hover:text-emerald-300 text-left" onclick="navigateTo('projects'); toggleMobileNav();" type="button">Projects</button> <button class="py-1 hover:text-emerald-300 text-left" onclick="navigateTo('contact'); toggleMobileNav();" type="button">Contact</button> <button class="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold shadow-md" id="nav-cta-btn-mobile" onclick="navigateTo('contact'); toggleMobileNav();" type="button"> Join Now </button>
+     </div>
     </div>
-  </header>
-
-  <section style="background-color:#000;color:white;padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;text-align:center;font-family: 'Arial', sans-serif;margin: 0 auto; max-width: 1200px;">
-    <h2 style="grid-column:1/-1;margin-bottom:20px;font-size:1.5rem;font-weight:600;letter-spacing:1px;">Startup Kit packed with nice features</h2>
-
-    <!-- First Feature Box -->
-    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
-      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Fast Delivery</h3>
-      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">We simplify your sourcing process by collecting materials from various suppliers and delivering them to you in one convenient package.</p>
+   </header><!-- MAIN CONTENT -->
+   <main class="flex-1 w-full"><!-- ========== HOME PAGE ========== -->
+    <div id="page-home" class="page-content page-transition"><!-- Hero -->
+     <section class="w-full">
+      <div class="max-w-7xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+       <div class="space-y-6">
+        <h1 id="home-hero-heading" class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">Transform Curiosity Into Creation</h1>
+        <p id="home-hero-subtext" class="text-base md:text-lg text-slate-200 max-w-xl">ProjectoKart is where students aged 12–18 explore, experiment, and engineer. We turn questions into projects, ideas into innovations, and learners into makers.</p>
+        <div class="flex flex-wrap items-center gap-4"><button class="inline-flex items-center justify-center px-6 py-3 rounded-full text-base font-semibold shadow-lg focus-ring" id="home-cta-primary" onclick="navigateTo('programs')" type="button"> Explore Programs </button> <button class="inline-flex items-center justify-center px-6 py-3 rounded-full text-base font-medium border-2 focus-ring bg-transparent" id="home-cta-secondary" onclick="navigateTo('journey')" type="button"> See The Journey </button>
+        </div>
+       </div>
+       <div class="relative">
+        <div class="aspect-square w-full rounded-3xl photo-block border border-slate-800/70 overflow-hidden flex items-center justify-center bg-slate-900/60 relative">
+         <div class="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-40 blur-3xl" id="home-orb-1"></div>
+         <div class="absolute -bottom-8 -left-8 w-48 h-48 rounded-full opacity-40 blur-3xl" id="home-orb-2"></div>
+         <div class="relative w-4/5 h-4/5 flex items-center justify-center">
+          <div class="absolute inset-0 flex items-center justify-center animate-[float-soft_4s_ease-in-out_infinite]">
+           <div class="w-32 h-32 rounded-full flex items-center justify-center border-4 border-slate-700 bg-slate-900/90 shadow-2xl">
+            <svg viewbox="0 0 64 64" class="w-20 h-20" aria-hidden="true"><defs>
+              <lineargradient id="homeGrad" x1="0" y1="0" x2="1" y2="1">
+               <stop offset="0%" stop-color="#38bdf8" />
+               <stop offset="50%" stop-color="#22c55e" />
+               <stop offset="100%" stop-color="#fb923c" />
+              </lineargradient>
+             </defs> <path d="M32 8C18 8 8 18 8 32s10 24 24 24 24-10 24-24S46 8 32 8z" fill="url(#homeGrad)" opacity="0.9"></path> <circle cx="32" cy="32" r="8" fill="#0f172a"></circle> <circle cx="32" cy="20" r="3" fill="#facc15"></circle> <circle cx="44" cy="32" r="3" fill="#facc15"></circle> <circle cx="32" cy="44" r="3" fill="#facc15"></circle> <circle cx="20" cy="32" r="3" fill="#facc15"></circle>
+            </svg>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section><!-- Quick Stats -->
+     <section class="w-full border-t border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center space-y-2">
+         <div class="text-4xl md:text-5xl font-extrabold" id="stat-1">
+          500+
+         </div>
+         <div class="text-sm md:text-base text-slate-300">
+          Students Empowered
+         </div>
+        </div>
+        <div class="text-center space-y-2">
+         <div class="text-4xl md:text-5xl font-extrabold" id="stat-2">
+          200+
+         </div>
+         <div class="text-sm md:text-base text-slate-300">
+          Projects Built
+         </div>
+        </div>
+        <div class="text-center space-y-2">
+         <div class="text-4xl md:text-5xl font-extrabold" id="stat-3">
+          15+
+         </div>
+         <div class="text-sm md:text-base text-slate-300">
+          Programs Offered
+         </div>
+        </div>
+       </div>
+      </div>
+     </section><!-- Features Grid -->
+     <section class="w-full border-t border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+       <h2 class="text-3xl md:text-4xl font-extrabold mb-10 text-center">Why ProjectoKart?</h2>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="card-hover rounded-2xl p-6 border border-slate-800 bg-slate-900/70">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" id="feature-icon-1">
+          <svg viewbox="0 0 32 32" class="w-7 h-7" aria-hidden="true"><path d="M16 4L4 10v12c0 7 12 12 12 12s12-5 12-12V10L16 4z" fill="#0f172a" stroke="#22c55e" stroke-width="2"></path>
+          </svg>
+         </div>
+         <h3 class="text-lg font-bold mb-2">Hands-On Learning</h3>
+         <p class="text-sm text-slate-200">Real experiments, real code, real circuits. Students learn by doing, not just watching.</p>
+        </article>
+        <article class="card-hover rounded-2xl p-6 border border-slate-800 bg-slate-900/70">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" id="feature-icon-2">
+          <svg viewbox="0 0 32 32" class="w-7 h-7" aria-hidden="true"><rect x="6" y="8" width="20" height="16" rx="2" fill="#0f172a" stroke="#38bdf8" stroke-width="2"></rect> <path d="M10 14h4M10 18h6" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+         </div>
+         <h3 class="text-lg font-bold mb-2">Expert Mentorship</h3>
+         <p class="text-sm text-slate-200">Guided by engineers, designers, and educators who care about your growth.</p>
+        </article>
+        <article class="card-hover rounded-2xl p-6 border border-slate-800 bg-slate-900/70">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" id="feature-icon-3">
+          <svg viewbox="0 0 32 32" class="w-7 h-7" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="#0f172a" stroke="#fb923c" stroke-width="2"></circle> <path d="M16 10v6l4 4" stroke="#fb923c" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+         </div>
+         <h3 class="text-lg font-bold mb-2">Portfolio-Ready Projects</h3>
+         <p class="text-sm text-slate-200">Build projects you can showcase, share, and be proud of.</p>
+        </article>
+       </div>
+      </div>
+     </section>
+    </div><!-- ========== PROGRAMS PAGE ========== -->
+    <div id="page-programs" class="page-content hidden-page page-transition">
+     <section class="w-full">
+      <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+       <div class="max-w-3xl mb-12">
+        <h1 id="programs-hero-heading" class="text-4xl md:text-5xl font-extrabold mb-4">Our Programs</h1>
+        <p class="text-base md:text-lg text-slate-200">From weekend workshops to semester-long labs, ProjectoKart programs are designed to meet students where they are and take them where they want to go.</p>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-8"><!-- Program 1 -->
+        <article class="card-hover rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-48 photo-block flex items-center justify-center relative" id="program-header-1">
+          <div class="text-6xl">
+           🚀
+          </div>
+         </div>
+         <div class="p-6 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold" id="program-badge-1">Beginner</span> <span class="text-xs text-slate-400">8 weeks</span>
+          </div>
+          <h3 class="text-2xl font-bold">Curiosity Lab</h3>
+          <p class="text-sm text-slate-200">Perfect for first-timers. Explore coding, electronics, and design thinking through fun, guided challenges.</p>
+          <ul class="text-sm text-slate-300 space-y-1">
+           <li>• Intro to Python &amp; Scratch</li>
+           <li>• Basic circuits &amp; sensors</li>
+           <li>• Team mini-projects</li>
+          </ul><button class="mt-4 w-full px-4 py-2.5 rounded-full text-sm font-semibold focus-ring" id="program-btn-1" onclick="navigateTo('contact')" type="button"> Learn More </button>
+         </div>
+        </article><!-- Program 2 -->
+        <article class="card-hover rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-48 photo-block flex items-center justify-center relative" id="program-header-2">
+          <div class="text-6xl">
+           ⚡
+          </div>
+         </div>
+         <div class="p-6 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold" id="program-badge-2">Intermediate</span> <span class="text-xs text-slate-400">12 weeks</span>
+          </div>
+          <h3 class="text-2xl font-bold">Maker Studio</h3>
+          <p class="text-sm text-slate-200">Build real prototypes. Learn Arduino, 3D design, and how to turn ideas into working products.</p>
+          <ul class="text-sm text-slate-300 space-y-1">
+           <li>• Arduino &amp; IoT projects</li>
+           <li>• CAD &amp; 3D printing</li>
+           <li>• Prototype showcase</li>
+          </ul><button class="mt-4 w-full px-4 py-2.5 rounded-full text-sm font-semibold focus-ring" id="program-btn-2" onclick="navigateTo('contact')" type="button"> Learn More </button>
+         </div>
+        </article><!-- Program 3 -->
+        <article class="card-hover rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-48 photo-block flex items-center justify-center relative" id="program-header-3">
+          <div class="text-6xl">
+           🎨
+          </div>
+         </div>
+         <div class="p-6 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold" id="program-badge-3">Advanced</span> <span class="text-xs text-slate-400">16 weeks</span>
+          </div>
+          <h3 class="text-2xl font-bold">Innovation Lab</h3>
+          <p class="text-sm text-slate-200">For experienced makers. Tackle real-world problems with AI, robotics, and interactive art.</p>
+          <ul class="text-sm text-slate-300 space-y-1">
+           <li>• Machine learning basics</li>
+           <li>• Robotics &amp; automation</li>
+           <li>• Public exhibition project</li>
+          </ul><button class="mt-4 w-full px-4 py-2.5 rounded-full text-sm font-semibold focus-ring" id="program-btn-3" onclick="navigateTo('contact')" type="button"> Learn More </button>
+         </div>
+        </article><!-- Program 4 -->
+        <article class="card-hover rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-48 photo-block flex items-center justify-center relative" id="program-header-4">
+          <div class="text-6xl">
+           🌟
+          </div>
+         </div>
+         <div class="p-6 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-3 py-1 rounded-full text-xs font-semibold" id="program-badge-4">All Levels</span> <span class="text-xs text-slate-400">Weekend</span>
+          </div>
+          <h3 class="text-2xl font-bold">Weekend Workshops</h3>
+          <p class="text-sm text-slate-200">Short, focused sessions on specific skills—game design, web dev, digital art, and more.</p>
+          <ul class="text-sm text-slate-300 space-y-1">
+           <li>• 2-day intensive format</li>
+           <li>• Rotating topics monthly</li>
+           <li>• Take-home projects</li>
+          </ul><button class="mt-4 w-full px-4 py-2.5 rounded-full text-sm font-semibold focus-ring" id="program-btn-4" onclick="navigateTo('contact')" type="button"> Learn More </button>
+         </div>
+        </article>
+       </div>
+      </div>
+     </section>
+    </div><!-- ========== JOURNEY PAGE ========== -->
+    <div id="page-journey" class="page-content hidden-page page-transition">
+     <section class="w-full">
+      <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+       <div class="max-w-3xl mb-12">
+        <h1 id="journey-hero-heading" class="text-4xl md:text-5xl font-extrabold mb-4">The ProjectoKart Journey</h1>
+        <p class="text-base md:text-lg text-slate-200">Every student follows a proven path from curiosity to creation. Here's how we guide learners through each stage.</p>
+       </div><!-- Journey Timeline -->
+       <div class="space-y-16"><!-- Stage 1: Curiosity -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+         <div class="order-2 lg:order-1">
+          <div class="flex items-center gap-3 mb-4">
+           <div class="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-slate-950" id="journey-dot-1">
+            01
+           </div>
+           <h2 class="text-3xl font-extrabold">Curiosity</h2>
+          </div>
+          <p class="text-base text-slate-200 mb-4">It all starts with a question. Students explore glowing ideas through playful experiments, interactive challenges, and real-world problems that make learning feel like an adventure.</p>
+          <ul class="space-y-2 text-sm text-slate-300">
+           <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Hands-on experiments that spark wonder</span></li>
+           <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Interactive demos and live coding sessions</span></li>
+           <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Safe space to ask "what if?" questions</span></li>
+          </ul>
+         </div>
+         <div class="order-1 lg:order-2">
+          <div class="aspect-square rounded-3xl photo-block border border-slate-800 bg-slate-900/60 flex items-center justify-center">
+           <div class="text-8xl animate-[float-soft_3s_ease-in-out_infinite]">
+            💡
+           </div>
+          </div>
+         </div>
+        </article><!-- Stage 2: Learning -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+         <div class="order-1">
+          <div class="aspect-square rounded-3xl photo-block border border-slate-800 bg-slate-900/60 flex items-center justify-center">
+           <div class="text-8xl animate-[float-soft_3.5s_ease-in-out_infinite]">
+            📚
+           </div>
+          </div>
+         </div>
+         <div class="order-2">
+          <div class="flex items-center gap-3 mb-4">
+           <div class="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-slate-950" id="journey-dot-2">
+            02
+           </div>
+           <h2 class="text-3xl font-extrabold">Learning</h2>
+          </div>
+          <p class="text-base text-slate-200 mb-4">Students dive into hands-on experiments, coding challenges, and STEM explorations. They play with sensors, circuits, and logic to build strong foundations.</p>
+          <ul class="space-y-2 text-sm text-slate-300">
+           <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">✓</span> <span>Structured lessons in Python, Arduino, and web dev</span></li>
+           <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">✓</span> <span>Electronics labs with real components</span></li>
+           <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">✓</span> <span>Collaborative problem-solving exercises</span></li>
+          </ul>
+         </div>
+        </article><!-- Stage 3: Developing -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+         <div class="order-2 lg:order-1">
+          <div class="flex items-center gap-3 mb-4">
+           <div class="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-slate-950" id="journey-dot-3">
+            03
+           </div>
+           <h2 class="text-3xl font-extrabold">Developing</h2>
+          </div>
+          <p class="text-base text-slate-200 mb-4">Using design thinking, students turn ideas into prototypes. They sketch, test, and refine while learning to collaborate and solve real problems.</p>
+          <ul class="space-y-2 text-sm text-slate-300">
+           <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">✓</span> <span>Rapid prototyping with cardboard, code, and circuits</span></li>
+           <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">✓</span> <span>User testing and feedback loops</span></li>
+           <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">✓</span> <span>Team collaboration and project management</span></li>
+          </ul>
+         </div>
+         <div class="order-1 lg:order-2">
+          <div class="aspect-square rounded-3xl photo-block border border-slate-800 bg-slate-900/60 flex items-center justify-center">
+           <div class="text-8xl animate-[float-soft_4s_ease-in-out_infinite]">
+            🔧
+           </div>
+          </div>
+         </div>
+        </article><!-- Stage 4: Making -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+         <div class="order-1">
+          <div class="aspect-square rounded-3xl photo-block border border-slate-800 bg-slate-900/60 flex items-center justify-center">
+           <div class="text-8xl animate-[float-soft_3.2s_ease-in-out_infinite]">
+            🎯
+           </div>
+          </div>
+         </div>
+         <div class="order-2">
+          <div class="flex items-center gap-3 mb-4">
+           <div class="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-slate-950" id="journey-dot-4">
+            04
+           </div>
+           <h2 class="text-3xl font-extrabold">Making</h2>
+          </div>
+          <p class="text-base text-slate-200 mb-4">Finally, students build real projects—interactive installations, smart gadgets, and digital artworks that merge technology, storytelling, and design.</p>
+          <ul class="space-y-2 text-sm text-slate-300">
+           <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Portfolio-ready final projects</span></li>
+           <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Public showcase and demo day</span></li>
+           <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> <span>Mentorship for next steps and competitions</span></li>
+          </ul>
+         </div>
+        </article>
+       </div>
+      </div>
+     </section>
+    </div><!-- ========== PROJECTS PAGE ========== -->
+    <div id="page-projects" class="page-content hidden-page page-transition">
+     <section class="w-full">
+      <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+       <div class="max-w-3xl mb-12">
+        <h1 id="projects-hero-heading" class="text-4xl md:text-5xl font-extrabold mb-4">Student Showcase</h1>
+        <p class="text-base md:text-lg text-slate-200">Every project here started as a spark of curiosity. Students learn to storyboard, wire, code, and polish their ideas into experiences they're proud to share.</p>
+       </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Project 1 -->
+        <article class="card-hover rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-40 photo-block flex items-center justify-center text-5xl">
+          🌈
+         </div>
+         <div class="p-5 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full text-xs font-semibold" id="project-badge-1">Learning</span> <span class="text-xs text-slate-400">Arduino + LEDs</span>
+          </div>
+          <h3 class="text-lg font-bold">Aurora Desk Buddy</h3>
+          <p class="text-sm text-slate-200">A mood-reactive desk light built with programmable LEDs and sensors that mirror the student's focus and energy.</p>
+          <div class="text-xs text-slate-400">
+           By Maya, Age 14
+          </div>
+         </div>
+        </article><!-- Project 2 -->
+        <article class="card-hover rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-40 photo-block flex items-center justify-center text-5xl">
+          🏙️
+         </div>
+         <div class="p-5 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full text-xs font-semibold" id="project-badge-2">Developing</span> <span class="text-xs text-slate-400">App Design</span>
+          </div>
+          <h3 class="text-lg font-bold">City Problem Solver</h3>
+          <p class="text-sm text-slate-200">A prototype app where teens map everyday city problems and pitch solutions using design thinking tools.</p>
+          <div class="text-xs text-slate-400">
+           By Team Phoenix, Ages 15-16
+          </div>
+         </div>
+        </article><!-- Project 3 -->
+        <article class="card-hover rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-40 photo-block flex items-center justify-center text-5xl">
+          🎵
+         </div>
+         <div class="p-5 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full text-xs font-semibold" id="project-badge-3">Making</span> <span class="text-xs text-slate-400">Interactive Art</span>
+          </div>
+          <h3 class="text-lg font-bold">Sound Garden</h3>
+          <p class="text-sm text-slate-200">A gallery-ready installation where movement and color triggers layered soundscapes and animations.</p>
+          <div class="text-xs text-slate-400">
+           By Arjun, Age 17
+          </div>
+         </div>
+        </article><!-- Project 4 -->
+        <article class="card-hover rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-40 photo-block flex items-center justify-center text-5xl">
+          🤖
+         </div>
+         <div class="p-5 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full text-xs font-semibold" id="project-badge-4">Making</span> <span class="text-xs text-slate-400">Robotics</span>
+          </div>
+          <h3 class="text-lg font-bold">Trash Sorting Bot</h3>
+          <p class="text-sm text-slate-200">An AI-powered robot that identifies and sorts recyclables using computer vision and servo motors.</p>
+          <div class="text-xs text-slate-400">
+           By Sofia &amp; Team, Ages 16-17
+          </div>
+         </div>
+        </article><!-- Project 5 -->
+        <article class="card-hover rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-40 photo-block flex items-center justify-center text-5xl">
+          🎮
+         </div>
+         <div class="p-5 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full text-xs font-semibold" id="project-badge-5">Learning</span> <span class="text-xs text-slate-400">Game Dev</span>
+          </div>
+          <h3 class="text-lg font-bold">Eco Quest</h3>
+          <p class="text-sm text-slate-200">A 2D platformer game teaching environmental science through puzzle-solving and storytelling.</p>
+          <div class="text-xs text-slate-400">
+           By Liam, Age 13
+          </div>
+         </div>
+        </article><!-- Project 6 -->
+        <article class="card-hover rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/70">
+         <div class="h-40 photo-block flex items-center justify-center text-5xl">
+          🌱
+         </div>
+         <div class="p-5 space-y-3">
+          <div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full text-xs font-semibold" id="project-badge-6">Developing</span> <span class="text-xs text-slate-400">IoT</span>
+          </div>
+          <h3 class="text-lg font-bold">Smart Plant Monitor</h3>
+          <p class="text-sm text-slate-200">An IoT device that tracks soil moisture, light, and temperature, sending alerts to your phone.</p>
+          <div class="text-xs text-slate-400">
+           By Priya, Age 15
+          </div>
+         </div>
+        </article>
+       </div>
+      </div>
+     </section>
+    </div><!-- ========== CONTACT PAGE ========== -->
+    <div id="page-contact" class="page-content hidden-page page-transition">
+     <section class="w-full">
+      <div class="max-w-5xl mx-auto px-6 py-12 md:py-16">
+       <div class="max-w-3xl mb-12">
+        <h1 id="contact-hero-heading" class="text-4xl md:text-5xl font-extrabold mb-4">Get In Touch</h1>
+        <p class="text-base md:text-lg text-slate-200">Ready to start your journey? Have questions about our programs? We'd love to hear from you.</p>
+       </div>
+       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10"><!-- Contact Form -->
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 md:p-8">
+         <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+         <form id="contact-form" class="space-y-5">
+          <div><label for="name" class="block text-sm font-medium mb-2">Your Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900/90 text-slate-50 focus-ring focus:border-emerald-400 transition-colors" placeholder="Enter your name">
+          </div>
+          <div><label for="email" class="block text-sm font-medium mb-2">Email Address</label> <input type="email" id="email" name="email" required class="w-full px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900/90 text-slate-50 focus-ring focus:border-emerald-400 transition-colors" placeholder="you@example.com">
+          </div>
+          <div><label for="program" class="block text-sm font-medium mb-2">Interested In</label> <select id="program" name="program" class="w-full px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900/90 text-slate-50 focus-ring focus:border-emerald-400 transition-colors"> <option>Curiosity Lab</option> <option>Maker Studio</option> <option>Innovation Lab</option> <option>Weekend Workshops</option> <option>General Inquiry</option> </select>
+          </div>
+          <div><label for="message" class="block text-sm font-medium mb-2">Message</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900/90 text-slate-50 focus-ring focus:border-emerald-400 transition-colors resize-none" placeholder="Tell us about your interests and questions..."></textarea>
+          </div><button type="submit" class="w-full px-6 py-3 rounded-full text-base font-semibold shadow-lg focus-ring" id="contact-submit-btn"> Send Message </button>
+          <div id="form-message" class="hidden text-sm text-center p-3 rounded-xl"></div>
+         </form>
+        </div><!-- Contact Info -->
+        <div class="space-y-6">
+         <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+          <div class="space-y-4 text-sm">
+           <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" id="contact-icon-1">
+             <svg viewbox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+             </svg>
+            </div>
+            <div>
+             <div class="font-semibold mb-1">
+              Email
+             </div>
+             <div id="contact-email" class="text-slate-300">
+              hello@projectokart.com
+             </div>
+            </div>
+           </div>
+           <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" id="contact-icon-2">
+             <svg viewbox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+             </svg>
+            </div>
+            <div>
+             <div class="font-semibold mb-1">
+              Phone
+             </div>
+             <div id="contact-phone" class="text-slate-300">
+              +1 (555) 123-4567
+             </div>
+            </div>
+           </div>
+           <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" id="contact-icon-3">
+             <svg viewbox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path> <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+             </svg>
+            </div>
+            <div>
+             <div class="font-semibold mb-1">
+              Location
+             </div>
+             <div class="text-slate-300">
+              Anywhere students are ready to build
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+          <div class="flex gap-3"><button type="button" aria-label="Instagram" class="w-12 h-12 rounded-xl border border-slate-700 flex items-center justify-center hover:border-slate-400 focus-ring bg-transparent transition-colors"> <span class="text-lg">📷</span> </button> <button type="button" aria-label="YouTube" class="w-12 h-12 rounded-xl border border-slate-700 flex items-center justify-center hover:border-slate-400 focus-ring bg-transparent transition-colors"> <span class="text-lg">▶️</span> </button> <button type="button" aria-label="LinkedIn" class="w-12 h-12 rounded-xl border border-slate-700 flex items-center justify-center hover:border-slate-400 focus-ring bg-transparent transition-colors"> <span class="text-lg">💼</span> </button> <button type="button" aria-label="Twitter" class="w-12 h-12 rounded-xl border border-slate-700 flex items-center justify-center hover:border-slate-400 focus-ring bg-transparent transition-colors"> <span class="text-lg">🐦</span> </button>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
     </div>
-
-    <!-- Second Feature Box -->
-    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
-      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Custom Kits</h3>
-      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">Whether you're working on a student project, a company prototype, or an industrial-scale project, we provide personalized kits tailored to your specific requirements.</p>
+   </main><!-- FOOTER -->
+   <footer class="w-full border-t border-slate-800/70">
+    <div class="max-w-7xl mx-auto px-6 py-8 md:py-10">
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+       <h3 class="text-lg font-bold mb-3">ProjectoKart</h3>
+       <p class="text-sm text-slate-300">Empowering the next generation of makers, innovators, and creative problem-solvers.</p>
+      </div>
+      <div>
+       <h4 class="text-sm font-semibold mb-3">Quick Links</h4>
+       <div class="flex flex-col gap-2 text-sm text-slate-300"><button class="text-left hover:text-emerald-300" onclick="navigateTo('home')" type="button">Home</button> <button class="text-left hover:text-emerald-300" onclick="navigateTo('programs')" type="button">Programs</button> <button class="text-left hover:text-emerald-300" onclick="navigateTo('journey')" type="button">Journey</button> <button class="text-left hover:text-emerald-300" onclick="navigateTo('projects')" type="button">Projects</button>
+       </div>
+      </div>
+      <div>
+       <h4 class="text-sm font-semibold mb-3">Newsletter</h4>
+       <p class="text-sm text-slate-300 mb-3">Get updates on new programs and workshops.</p>
+       <form id="newsletter-form" class="flex gap-2"><input type="email" placeholder="Your email" required class="flex-1 px-3 py-2 rounded-lg border border-slate-700 bg-slate-900/90 text-slate-50 text-sm focus-ring"> <button type="submit" class="px-4 py-2 rounded-lg text-sm font-semibold focus-ring" id="newsletter-btn"> Join </button>
+       </form>
+      </div>
+     </div>
+     <div class="pt-6 border-t border-slate-800/70 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
+      <div>
+       © <span id="footer-year"></span> ProjectoKart. All rights reserved.
+      </div>
+      <div class="flex gap-4"><button class="hover:text-slate-200" type="button">Privacy</button> <button class="hover:text-slate-200" type="button">Terms</button>
+      </div>
+     </div>
     </div>
-
-    <!-- Third Feature Box -->
-    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
-      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Verified Materials</h3>
-      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">Get top-notch, reliable components for all your projects. We only source from trusted suppliers, ensuring consistency and performance.</p>
-    </div>
-
-    <!-- Fourth Feature Box -->
-    <div style="background: white; color: rgb(0, 82, 204); padding: 25px; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px; transition: transform 0.3s, box-shadow 0.3s; transform: scale(1.05);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 30px rgba(0, 0, 0, 0.15)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.1);">
-      <h3 style="margin-bottom:12px;font-size:1.3rem;font-weight:700;letter-spacing:0.5px;">Nationwide Support</h3>
-      <p style="font-size:0.9rem;line-height:1.6;margin-top:10px;color:#333;letter-spacing:0.5px;">From any city or village, we deliver everywhere.</p>
-    </div>
-</section>
-
-
-  <section style="background-color:#222;padding:20px 10px;text-align:center;color:white;">
-  <h2 style="font-size:1.4rem;margin-bottom:25px;font-weight:600;letter-spacing:0.5px;">
-    Streamline Your Project Creation with Ease.
-  </h2>
-
-  <!-- Button opens contact.html -->
-  <a href="contact.html" style="text-decoration: none;">
-    <button style="background: transparent; color: rgb(244, 197, 66); padding: 14px 30px; font-size: 1rem; border: 2px solid rgb(244, 197, 66); border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;">
-      Contact Us
-    </button>
-  </a>
-</section>
-
-
- 
-    
-  
-<footer style="background-color: #111; color: #fff; padding: 40px 20px; font-family: 'Poppins', sans-serif;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
-    
-    <!-- Contact Info -->
-    <div style="flex: 1 1 250px;">
-      <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 15px;">Contact</h3>
-      <p style="color: #ccc; font-size: 0.9rem; margin: 6px 0;">📞 8295294389</p>
-      <p style="color: #ccc; font-size: 0.9rem; margin: 6px 0;">📧 Contact@projectokart.com</p>
-      <p style="color: #ccc; font-size: 0.9rem; margin: 6px 0;">👤 Projectokrt</p>
-    </div>
-
-    <!-- Media Links -->
-    <div style="flex: 1 1 250px;">
-      <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 15px;">Media Links</h3>
-      <a href="#" style="display: block; color: #ccc; font-size: 0.9rem; margin: 6px 0; text-decoration: none;">Facebook</a>
-      <a href="#" style="display: block; color: #ccc; font-size: 0.9rem; margin: 6px 0; text-decoration: none;">Instagram</a>
-      <a href="#" style="display: block; color: #ccc; font-size: 0.9rem; margin: 6px 0; text-decoration: none;">Twitter</a>
-    </div>
-
-    <!-- Quick Links -->
-    <div style="flex: 1 1 250px;">
-      <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 15px;">Quick Links</h3>
-      <a href="index.html" style="display: block; color: #ccc; font-size: 0.9rem; margin: 6px 0; text-decoration: none;">Home</a>
-      <a href="about.html" style="display: block; color: #ccc; font-size: 0.9rem; margin: 6px 0; text-decoration: none;">About Us</a>
-      <a href="products.html" style="display: block; color: #ccc; font-size: 0.9rem; margin: 6px 0; text-decoration: none;">Products</a>
-      <a href="contact.html" style="display: block; color: #ccc; font-size: 0.9rem; margin: 6px 0; text-decoration: none;">Contact</a>
-    </div>
-
-    <!-- Logo -->
-    <div style="background-color: #111;flex: 1 1 250px; text-align: center;">
-      <img src="p2.png" alt="Projectokart Logo" style="max-width: 150px; margin-bottom: 10px;">
-      <p style="color: #ccc; font-size: 0.8rem;">© 2025 Projectokart. All rights reserved.</p>
-    </div>
-
+   </footer>
   </div>
-</footer>
+  <script>
+    // ========== CONFIG & ELEMENT SDK ==========
+    const defaultConfig = {
+      site_title: "ProjectoKart",
+      tagline: "From curiosity to creation",
+      home_hero_heading: "Transform Curiosity Into Creation",
+      home_hero_subtext: "ProjectoKart is where students aged 12–18 explore, experiment, and engineer. We turn questions into projects, ideas into innovations, and learners into makers.",
+      programs_hero_heading: "Our Programs",
+      journey_hero_heading: "The ProjectoKart Journey",
+      projects_hero_heading: "Student Showcase",
+      contact_hero_heading: "Get In Touch",
+      contact_email: "hello@projectokart.com",
+      contact_phone: "+1 (555) 123-4567",
 
- 
-<script>
-  function handleResize() {
-    const navLinks = document.getElementById("navLinks");
-    const menuIcon = document.getElementById("menuIcon");
-    const mobileMenu = document.getElementById("mobileMenu");
+      background_color: "#020617",
+      surface_color: "#1e293b",
+      text_color: "#e5e7eb",
+      primary_action_color: "#22c55e",
+      secondary_action_color: "#38bdf8",
 
-    if (window.innerWidth <= 768) {
-      navLinks.style.display = "none";
-      menuIcon.style.display = "block";
+      font_family: "system-ui",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const cfg = Object.assign({}, defaultConfig, config || {});
+
+      const baseFont = cfg.font_family || defaultConfig.font_family;
+      const baseSize = Number(cfg.font_size) || defaultConfig.font_size;
+
+      document.body.style.fontFamily = `${baseFont}, system-ui, -apple-system, sans-serif`;
+      document.body.style.fontSize = baseSize + "px";
+
+      // Text content updates
+      const textMap = {
+        "site-title": cfg.site_title,
+        "tagline": cfg.tagline,
+        "home-hero-heading": cfg.home_hero_heading,
+        "home-hero-subtext": cfg.home_hero_subtext,
+        "programs-hero-heading": cfg.programs_hero_heading,
+        "journey-hero-heading": cfg.journey_hero_heading,
+        "projects-hero-heading": cfg.projects_hero_heading,
+        "contact-hero-heading": cfg.contact_hero_heading,
+        "contact-email": cfg.contact_email,
+        "contact-phone": cfg.contact_phone
+      };
+
+      Object.entries(textMap).forEach(([id, value]) => {
+        const el = document.getElementById(id);
+        if (el && value) el.textContent = value;
+      });
+
+      // Font size scaling
+      const scaleMap = {
+        "home-hero-heading": 2.5,
+        "programs-hero-heading": 2.2,
+        "journey-hero-heading": 2.2,
+        "projects-hero-heading": 2.2,
+        "contact-hero-heading": 2.2
+      };
+
+      Object.entries(scaleMap).forEach(([id, scale]) => {
+        const el = document.getElementById(id);
+        if (el) el.style.fontSize = (baseSize * scale) + "px";
+      });
+
+      // Colors
+      const bg = cfg.background_color || defaultConfig.background_color;
+      const surface = cfg.surface_color || defaultConfig.surface_color;
+      const text = cfg.text_color || defaultConfig.text_color;
+      const primary = cfg.primary_action_color || defaultConfig.primary_action_color;
+      const secondary = cfg.secondary_action_color || defaultConfig.secondary_action_color;
+
+      const root = document.getElementById("app-root");
+      if (root) {
+        root.style.backgroundColor = bg;
+        root.style.color = text;
+      }
+
+      // Apply primary color to buttons
+      const primaryBtns = [
+        "nav-cta-btn", "nav-cta-btn-mobile", "home-cta-primary",
+        "program-btn-1", "program-btn-2", "program-btn-3", "program-btn-4",
+        "contact-submit-btn", "newsletter-btn"
+      ];
+      primaryBtns.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.backgroundColor = primary;
+          el.style.color = "#020617";
+        }
+      });
+
+      // Secondary buttons
+      const secondaryBtn = document.getElementById("home-cta-secondary");
+      if (secondaryBtn) {
+        secondaryBtn.style.borderColor = secondary;
+        secondaryBtn.style.color = secondary;
+      }
+
+      // Stats colors
+      ["stat-1", "stat-2", "stat-3"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.color = primary;
+      });
+
+      // Feature icons
+      const featureIcons = ["feature-icon-1", "feature-icon-2", "feature-icon-3"];
+      [primary, secondary, "#fb923c"].forEach((color, idx) => {
+        const el = document.getElementById(featureIcons[idx]);
+        if (el) el.style.backgroundColor = color;
+      });
+
+      // Home orbs
+      const orb1 = document.getElementById("home-orb-1");
+      const orb2 = document.getElementById("home-orb-2");
+      if (orb1) orb1.style.backgroundColor = secondary;
+      if (orb2) orb2.style.backgroundColor = primary;
+
+      // Program badges
+      const programBadges = ["program-badge-1", "program-badge-2", "program-badge-3", "program-badge-4"];
+      [secondary, primary, "#fb923c", primary].forEach((color, idx) => {
+        const el = document.getElementById(programBadges[idx]);
+        if (el) {
+          el.style.backgroundColor = color;
+          el.style.color = "#020617";
+        }
+      });
+
+      // Program headers
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`program-header-${i}`);
+        if (el) el.style.backgroundColor = surface;
+      }
+
+      // Journey dots
+      ["journey-dot-1", "journey-dot-2", "journey-dot-3", "journey-dot-4"].forEach((id, idx) => {
+        const el = document.getElementById(id);
+        const colors = [primary, secondary, "#fb923c", primary];
+        if (el) el.style.backgroundColor = colors[idx];
+      });
+
+      // Project badges
+      const projectBadges = ["project-badge-1", "project-badge-2", "project-badge-3", "project-badge-4", "project-badge-5", "project-badge-6"];
+      [secondary, "#fb923c", primary, primary, secondary, "#fb923c"].forEach((color, idx) => {
+        const el = document.getElementById(projectBadges[idx]);
+        if (el) {
+          el.style.backgroundColor = color;
+          el.style.color = "#020617";
+        }
+      });
+
+      // Contact icons
+      ["contact-icon-1", "contact-icon-2", "contact-icon-3"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.backgroundColor = surface;
+      });
+
+      // Active nav link
+      const activeLinks = document.querySelectorAll(".nav-link.active");
+      activeLinks.forEach(link => {
+        const after = window.getComputedStyle(link, "::after");
+        link.style.setProperty("--active-color", primary);
+      });
+    }
+
+    function mapToCapabilities(config) {
+      const cfg = config || defaultConfig;
+      return {
+        recolorables: [
+          {
+            get: () => cfg.background_color || defaultConfig.background_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ background_color: value || defaultConfig.background_color });
+              }
+            }
+          },
+          {
+            get: () => cfg.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ surface_color: value || defaultConfig.surface_color });
+              }
+            }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ text_color: value || defaultConfig.text_color });
+              }
+            }
+          },
+          {
+            get: () => cfg.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ primary_action_color: value || defaultConfig.primary_action_color });
+              }
+            }
+          },
+          {
+            get: () => cfg.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ secondary_action_color: value || defaultConfig.secondary_action_color });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => cfg.font_family || defaultConfig.font_family,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_family: value || defaultConfig.font_family });
+            }
+          }
+        },
+        fontSizeable: {
+          get: () => Number(cfg.font_size) || defaultConfig.font_size,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_size: Number(value) || defaultConfig.font_size });
+            }
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      const cfg = Object.assign({}, defaultConfig, config || {});
+      return new Map([
+        ["site_title", cfg.site_title],
+        ["tagline", cfg.tagline],
+        ["home_hero_heading", cfg.home_hero_heading],
+        ["home_hero_subtext", cfg.home_hero_subtext],
+        ["programs_hero_heading", cfg.programs_hero_heading],
+        ["journey_hero_heading", cfg.journey_hero_heading],
+        ["projects_hero_heading", cfg.projects_hero_heading],
+        ["contact_hero_heading", cfg.contact_hero_heading],
+        ["contact_email", cfg.contact_email],
+        ["contact_phone", cfg.contact_phone]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
     } else {
-      navLinks.style.display = "flex";
-      menuIcon.style.display = "none";
-      mobileMenu.style.display = "none";
+      onConfigChange(defaultConfig);
     }
-  }
 
-  window.addEventListener("resize", handleResize);
-  window.addEventListener("load", handleResize);
+    // ========== NAVIGATION ==========
+    let currentPage = "home";
 
-  document.getElementById("menuIcon").addEventListener("click", function () {
-    const menu = document.getElementById("mobileMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-  });
-</script>
+    function navigateTo(page) {
+      if (currentPage === page) return;
 
+      // Hide all pages
+      document.querySelectorAll(".page-content").forEach(p => {
+        p.classList.add("hidden-page");
+      });
 
+      // Show target page
+      const targetPage = document.getElementById(`page-${page}`);
+      if (targetPage) {
+        targetPage.classList.remove("hidden-page");
+        currentPage = page;
+      }
 
+      // Update active nav link
+      document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.remove("active");
+        if (link.dataset.page === page) {
+          link.classList.add("active");
+        }
+      });
 
-</body></html>
+      // Scroll to top
+      const appRoot = document.getElementById("app-root");
+      if (appRoot) appRoot.scrollTop = 0;
+    }
+
+    function toggleMobileNav() {
+      const nav = document.getElementById("mobile-nav");
+      if (nav) {
+        nav.classList.toggle("hidden");
+      }
+    }
+
+    // ========== FORM HANDLERS ==========
+    document.addEventListener("DOMContentLoaded", () => {
+      // Contact form
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const messageDiv = document.getElementById("form-message");
+          if (messageDiv) {
+            messageDiv.textContent = "Thank you! We'll get back to you soon.";
+            messageDiv.className = "text-sm text-center p-3 rounded-xl bg-emerald-500/20 text-emerald-300";
+            messageDiv.classList.remove("hidden");
+            contactForm.reset();
+            setTimeout(() => {
+              messageDiv.classList.add("hidden");
+            }, 5000);
+          }
+        });
+      }
+
+      // Newsletter form
+      const newsletterForm = document.getElementById("newsletter-form");
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const input = newsletterForm.querySelector('input[type="email"]');
+          if (input) {
+            input.value = "";
+            input.placeholder = "Thanks for subscribing!";
+            setTimeout(() => {
+              input.placeholder = "Your email";
+            }, 3000);
+          }
+        });
+      }
+
+      // Footer year
+      const yearEl = document.getElementById("footer-year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // Set initial active nav
+      const homeLink = document.querySelector('.nav-link[data-page="home"]');
+      if (homeLink) homeLink.classList.add("active");
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5fb1cf10250c28',t:'MTc2NDM5NDAzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
